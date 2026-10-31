@@ -1,0 +1,215 @@
+import type {
+  EducationLevelId,
+  Question,
+  SmaSmkTrackId,
+} from './questions'
+
+export function buildAiQuestions(
+  _level: EducationLevelId | null | undefined,
+  _track?: SmaSmkTrackId | null,
+): Question[] {
+  return aiQuestions
+}
+
+export const aiQuestions: Question[] = [
+  {
+    id: 'aq1',
+    type: 'single',
+    prompt: 'Kalau boleh memilih, belajar model mana yang paling pas buatmu?',
+    options: [
+      { id: 'a', label: 'Banyak teori & konsep dulu, praktik belakangan' },
+      { id: 'b', label: 'Langsung praktik, teorinya sambil jalan' },
+      { id: 'c', label: 'Campuran keduanya seimbang' },
+      { id: 'd', label: 'Belum tahu, tergantung situasinya' },
+    ],
+  },
+  {
+    id: 'aq2',
+    type: 'multi',
+    maxSelect: 2,
+    prompt: 'Bidang mana yang paling bikin kamu penasaran?',
+    helper: 'Pilih maksimal 2.',
+    options: [
+      { id: 'a', label: 'Teknologi & komputer' },
+      { id: 'b', label: 'Kesehatan' },
+      { id: 'c', label: 'Bisnis & uang' },
+      { id: 'd', label: 'Seni & desain' },
+      { id: 'e', label: 'Sosial & mengajar' },
+      { id: 'f', label: 'Hukum & keadilan' },
+      { id: 'g', label: 'Teknik & mesin' },
+    ],
+  },
+  {
+    id: 'aq3',
+    type: 'linear',
+    prompt: 'Di kelas, kamu lebih nyaman di sisi mana?',
+    left: 'Memahami teori & konsep',
+    right: 'Langsung mencoba praktik',
+    allowNeutral: true,
+    options: [
+      { id: 'left', label: 'Memahami teori & konsep' },
+      { id: 'neutral', label: 'Sama saja' },
+      { id: 'right', label: 'Langsung mencoba praktik' },
+    ],
+  },
+  {
+    id: 'aq4',
+    type: 'single',
+    prompt: 'Setelah lulus nanti, gambaran hidup mana yang paling kamu inginkan?',
+    options: [
+      { id: 'a', label: 'Cepat punya penghasilan & pengalaman kerja' },
+      { id: 'b', label: 'Kuliah dulu setinggi mungkin' },
+      { id: 'c', label: 'Kuliah sambil kerja atau usaha' },
+      { id: 'd', label: 'Belum tahu, ingin cari gambaran dulu' },
+    ],
+  },
+  {
+    id: 'aq5',
+    type: 'multi',
+    maxSelect: 3,
+    prompt: 'Kegiatan apa yang bisa kamu lakukan lama tanpa cepat bosan?',
+    helper: 'Pilih maksimal 3.',
+    options: [
+      { id: 'a', label: 'Ngutak-atik aplikasi, gadget, atau kode' },
+      { id: 'b', label: 'Membaca, meneliti, atau menyusun data' },
+      { id: 'c', label: 'Mengobrol, membantu, atau mengajar orang' },
+      { id: 'd', label: 'Gerak, olahraga, atau kerja fisik' },
+      { id: 'e', label: 'Mengatur acara, uang, atau penjualan' },
+      { id: 'f', label: 'Menggambar, musik, atau membuat konten' },
+      { id: 'g', label: 'Membongkar-pasang atau merakit sesuatu' },
+    ],
+  },
+  {
+    id: 'aq6',
+    type: 'linear',
+    prompt: 'Cara bekerja favoritmu lebih ke mana?',
+    left: 'Sendiri, fokus, tenang',
+    right: 'Bareng tim, ramai, diskusi',
+    allowNeutral: true,
+    options: [
+      { id: 'left', label: 'Sendiri, fokus, tenang' },
+      { id: 'neutral', label: 'Sama saja' },
+      { id: 'right', label: 'Bareng tim, ramai, diskusi' },
+    ],
+  },
+  {
+    id: 'aq7',
+    type: 'single',
+    prompt: 'Saat menghadapi hal yang sulit, kamu biasanya...',
+    options: [
+      { id: 'a', label: 'Mencoba sendiri sampai paham' },
+      { id: 'b', label: 'Bertanya dan berdiskusi dengan orang' },
+      { id: 'c', label: 'Langsung praktikkan sambil belajar' },
+      { id: 'd', label: 'Mengikuti panduan atau langkah sistematis' },
+    ],
+  },
+  {
+    id: 'aq8',
+    type: 'multi',
+    maxSelect: 2,
+    prompt: 'Menurutmu, pelajaran/bidang mana paling berguna untuk masa depan?',
+    helper: 'Pilih maksimal 2.',
+    options: [
+      { id: 'a', label: 'Matematika & logika' },
+      { id: 'b', label: 'Bahasa & komunikasi' },
+      { id: 'c', label: 'Sains & alam' },
+      { id: 'd', label: 'Teknologi & rekayasa' },
+      { id: 'e', label: 'Seni & kreativitas' },
+      { id: 'f', label: 'Sosial & kehidupan' },
+    ],
+  },
+  {
+    id: 'aq9',
+    type: 'linear',
+    prompt: 'Kamu lebih mengejar yang mana?',
+    left: 'Hasil cepat & langsung kelihatan',
+    right: 'Proses panjang tapi mendalam',
+    allowNeutral: true,
+    options: [
+      { id: 'left', label: 'Hasil cepat & langsung kelihatan' },
+      { id: 'neutral', label: 'Sama saja' },
+      { id: 'right', label: 'Proses panjang tapi mendalam' },
+    ],
+  },
+  {
+    id: 'aq10',
+    type: 'single',
+    prompt: 'Orang di sekitarmu biasanya minta tolong ke kamu soal...',
+    options: [
+      { id: 'a', label: 'Gadget, komputer, atau hal teknis' },
+      { id: 'b', label: 'Tugas sekolah atau belajar' },
+      { id: 'c', label: 'Curhat dan memberi semangat' },
+      { id: 'd', label: 'Bikin sesuatu yang kreatif' },
+      { id: 'e', label: 'Mengatur acara atau kegiatan' },
+    ],
+  },
+  {
+    id: 'aq11',
+    type: 'single',
+    prompt: 'Menurutmu, kuliah itu...',
+    options: [
+      { id: 'a', label: 'Harus — jalur utama menuju kesuksesan' },
+      { id: 'b', label: 'Bagus, tapi hanya kalau memang cocok' },
+      { id: 'c', label: 'Belum tentu perlu; skill & kerja juga bisa' },
+      { id: 'd', label: 'Masih benar-benar bingung' },
+    ],
+  },
+  {
+    id: 'aq12',
+    type: 'multi',
+    maxSelect: 2,
+    prompt: 'Kamu ingin pekerjaan nanti seperti apa?',
+    helper: 'Pilih maksimal 2.',
+    options: [
+      { id: 'a', label: 'Penghasilan besar' },
+      { id: 'b', label: 'Bermanfaat untuk orang lain' },
+      { id: 'c', label: 'Bebas & kreatif' },
+      { id: 'd', label: 'Stabil & terjamin' },
+      { id: 'e', label: 'Sesuai hobi/minat' },
+      { id: 'f', label: 'Bergengsi & diakui' },
+    ],
+  },
+  {
+    id: 'aq13',
+    type: 'linear',
+    prompt: 'Antara SMA dan SMK, mana yang lebih menarik buatmu?',
+    left: 'SMA — banyak materi & persiapan kuliah',
+    right: 'SMK — banyak praktik & skill kerja',
+    allowNeutral: true,
+    options: [
+      { id: 'left', label: 'SMA — banyak materi & persiapan kuliah' },
+      { id: 'neutral', label: 'Sama saja / belum tahu' },
+      { id: 'right', label: 'SMK — banyak praktik & skill kerja' },
+    ],
+  },
+  {
+    id: 'aq14',
+    type: 'single',
+    prompt: 'Skenario mana yang paling pas untukmu sekarang?',
+    options: [
+      { id: 'a', label: 'Fokus belajar penuh' },
+      { id: 'b', label: 'Mulai kerja atau magang' },
+      { id: 'c', label: 'Campuran belajar & praktik' },
+      { id: 'd', label: 'Eksplorasi dulu sambil menunggu waktu' },
+    ],
+  },
+  {
+    id: 'aq15',
+    type: 'multi',
+    maxSelect: 3,
+    optional: true,
+    prompt: 'Hal apa yang ingin kamu siapkan atau coba dalam 6 bulan ke depan?',
+    helper: 'Pilih maksimal 3, atau lewati kalau belum ada.',
+    options: [
+      { id: 'a', label: 'Merapikan nilai rapor' },
+      { id: 'b', label: 'Ikut lomba atau organisasi' },
+      { id: 'c', label: 'Belajar skill baru secara mandiri' },
+      { id: 'd', label: 'Mencari info jurusan & kampus' },
+      { id: 'e', label: 'Mencari info kerja atau PKL' },
+      { id: 'f', label: 'Mengerjakan proyek kecil sendiri' },
+      { id: 'g', label: 'Diskusi dengan guru atau orang tua' },
+    ],
+  },
+]
+
+export const AI_QUESTION_IDS = aiQuestions.map((question) => question.id)
