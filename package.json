@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "SEI — Self Exploration Intelligence. Web app yang membantu siswa SMP, SMA, dan SMK mengenali minat dan menjelajahi pilihan pendidikan.",
-  "homepage": "https://sei-dzarel.netlify.app",
+  "homepage": "https://sei-explore.netlify.app",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DzarelDeveloper/sei.git"

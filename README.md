@@ -6,7 +6,13 @@
 
 <img src="docs/sei-banner.png" alt="Banner SEI — logo S, jalur eksplorasi bidang studi, dan maskot siswa" width="100%">
 
-[![Live Demo](https://img.shields.io/badge/▶_Live_Demo-coba_sekarang-1a5fd0?style=for-the-badge&logo=netlify&logoColor=white)](https://sei-dzarel.netlify.app)
+[![▶ Live Demo — coba sekarang](https://img.shields.io/badge/%E2%96%B6%20Live_Demo-coba_sekarang-1a5fd0?style=for-the-badge&logo=netlify&logoColor=00c7b7&labelColor=14263a)](https://sei-explore.netlify.app/)
+
+[![Preview](https://img.shields.io/badge/-Preview-2b74e6?style=flat-square)](#product-preview)
+[![Fitur](https://img.shields.io/badge/-Fitur-128475?style=flat-square)](#key-features)
+[![Repository](https://img.shields.io/badge/-DzarelDeveloper%2Fsei-14263a?style=flat-square&logo=github&logoColor=white)](https://github.com/DzarelDeveloper/sei)
+
+[Cara Kerja](#how-it-works) · [FAQ](#faq) · [Instalasi](#getting-started)
 
 </div>
 
@@ -17,8 +23,6 @@ pilihannya.**
 Alat refleksi, bukan tes bakat. Tidak ada warna, font, atau jurusan yang
 dipaksakan — arah tetap milikmu. Tanpa akun, tanpa backend, tanpa data yang
 dikirim ke server kami.
-
-[🔴 Live Demo](https://sei-dzarel.netlify.app) · [Preview](#product-preview) · [Fitur](#key-features) · [Cara kerja](#how-it-works) · [FAQ](#faq) · [Instalasi](#getting-started) · [Repository](https://github.com/DzarelDeveloper/sei)
 
 ---
 
