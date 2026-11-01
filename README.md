@@ -12,7 +12,7 @@
 [![Fitur](https://img.shields.io/badge/-Fitur-128475?style=flat-square)](#key-features)
 [![Repository](https://img.shields.io/badge/-DzarelDeveloper%2Fsei-14263a?style=flat-square&logo=github&logoColor=white)](https://github.com/DzarelDeveloper/sei)
 
-[Cara Kerja](#how-it-works) · [FAQ](#faq) · [Instalasi](#getting-started)
+[Cara Kerja](#how-it-works) · [FAQ](#faq) · [Instalasi](#getting-started) · [Demo Juri](#deployment--demo-untuk-juri) · [Disclosure](DISCLOSURE.md)
 
 </div>
 
@@ -143,6 +143,21 @@ Diverifikasi dari `package.json`:
 Aplikasi murni sisi klien: **tidak ada backend, tidak ada database**. Mode AI
 menghubungkan browser langsung ke provider eksternal dengan key milikmu.
 
+## Architecture / Data Flow
+
+```mermaid
+flowchart LR
+    U[User / Siswa] --> FE[React SPA<br/>Vite + Router]
+    FE --> S[Context State<br/>exploration · settings · character]
+    S --> LS[(localStorage<br/>browser perangkat)]
+    FE -->|mode AI, BYOK| API[LLM Provider API<br/>OpenAI / Anthropic / Gemini / Groq / OpenRouter]
+    API -->|analisis esai & hasil| FE
+    FE --> R[Hasil: skor rule-based<br/>atau halaman AI]
+```
+
+Catatan jujur: kotak `API` hanya dilalui ketika pengguna mengaktifkan Mode AI
+dan menempelkan key miliknya sendiri; alur default berhenti di browser.
+
 ## Getting Started
 
 Prasyarat: **Node.js 18+** dan **npm** (repo menyertakan `package-lock.json`).
@@ -164,6 +179,23 @@ npm run dev                       # http://localhost:5173
 
 Hasil build bersifat static — sajikan `dist/` di hosting apa pun dengan
 fallback ke `index.html`.
+
+## Deployment & Demo untuk Juri
+
+- **Live URL:** https://sei-explore.netlify.app (auto-deploy dari branch `main`)
+- **Versi terkunci:** tag `v1.0-submission` pada GitHub — commit hash yang
+  dinilai tercatat di release/tag tersebut.
+- **Tanpa login.** Semua fitur default dapat diuji langsung dari kondisi kosong:
+  *Mulai → Pengaturan → Asesmen 15 soal → Hasil → Jelajah Jalur*.
+- **Mode AI untuk penguji.** SEI memakai pola bring-your-own-key, jadi juri
+  bisa menguji fitur AI dengan salah satu cara ini:
+  1. Buka **Pengaturan → Mode AI**, tempel API key Groq/Gemini/OpenAI milik
+     sendiri — provider gratis seperti Groq atau Gemini dapat didaftarkan
+     dalam ±2 menit; **atau**
+  2. Minta **kunci demo sementara** melalui kanal/form panitia (kunci dikirim
+     di luar repository, sesuai ketentuan keamanan).
+- Tidak ada secret, API key, maupun credential apa pun yang disimpan di
+  repository ini — lihat `.env.example` (kosong, memang disengaja).
 
 ## Privacy and Limitations
 
@@ -280,6 +312,8 @@ halaman perbandingan jalur untuk keduanya.
 │   ├── sei-wordmark.png           # wordmark judul README
 │   └── screenshots/               # landing/ assessment/ results/ pathways/ mobile/
 ├── LICENSE                        # MIT — (c) 2026 Muhamad Dzarel Alghifari
+├── DISCLOSURE.md                  # AI & Technology Disclosure (lomba)
+├── .env.example                   # kosong by design — tidak ada secret
 ├── netlify.toml                   # konfigurasi deploy Netlify
 └── vite.config.ts
 ```
@@ -290,6 +324,25 @@ halaman perbandingan jalur untuk keduanya.
 > Ia membereskan pilihanmu, lalu mengembalikan kendalinya kepadamu.”
 
 ---
+
+## Team
+
+**Muhamad Dzarel Alghifari** — peserta individu. Seluruh peran dipegang sendiri:
+perancangan produk & UX, penulisan kode, kurasi konten pendidikan, pembuatan
+aset visual (maskot + logo), dokumentasi, dan deployment.
+
+## Third-party Resources & Credits
+
+| Resource | Lisensi | Peran |
+| --- | --- | --- |
+| [Plus Jakarta Sans](https://fontsource.org/fonts/plus-jakarta-sans) & Instrument Serif (Fontsource) | SIL OFL 1.1 | Tipografi aplikasi |
+| React, React Router, Vite, TypeScript | MIT | Fondasi aplikasi |
+| [shields.io](https://shields.io) | — | Badge dinamis di README ini |
+| Maskot, logo "S", banner, wordmark | buatan sendiri | Aset brand SEI — tidak memakai stok pihak ketiga |
+
+Pengembangan dibantu **AI coding assistant** sebagai development tool; seluruh
+kode di-review, diuji, dan dipertanggungjawabkan oleh penulis. Rincian lengkap
+(termasuk pre-existing status proyek): **[DISCLOSURE.md](DISCLOSURE.md)**.
 
 ## Lisensi dan Pengembangan
 
