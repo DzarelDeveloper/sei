@@ -192,8 +192,9 @@ fallback ke `index.html`.
   1. Buka **Pengaturan → Mode AI**, tempel API key Groq/Gemini/OpenAI milik
      sendiri — provider gratis seperti Groq atau Gemini dapat didaftarkan
      dalam ±2 menit; **atau**
-  2. Minta **kunci demo sementara** melalui kanal/form panitia (kunci dikirim
-     di luar repository, sesuai ketentuan keamanan).
+  2. Minta **kunci demo sementara** melalui kanal/form panitia — kuncinya
+     berkuota kecil, berkedaluwarsa, dan dapat di-revoke kapan saja (bukan key
+     pribadi; dikirim di luar repository sesuai ketentuan keamanan).
 - Tidak ada secret, API key, maupun credential apa pun yang disimpan di
   repository ini — lihat `.env.example` (kosong, memang disengaja).
 
