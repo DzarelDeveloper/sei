@@ -3,12 +3,14 @@ import { useLocation } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { Wordmark } from './Logo'
+import { smaSmkFieldDefinitions } from '../data/planningSmaSmk'
 
+/*
+ * Tab titles for the routes a crawler is not meant to index. Everything that
+ * is indexable carries its own title in indexableHeads below.
+ */
 const titles: Record<string, string> = {
-  '/': 'SEI — Kenali Dirimu, Temukan Arahmu',
   '/pengaturan': 'Pengaturan — SEI',
-  '/mulai': 'Pilih Jenjang — SEI',
-  '/mulai/sekolah': 'Pilih SMA atau SMK — SEI',
   '/asesmen': 'Asesmen — SEI',
   '/asesmen/pengantar': 'Pengantar Asesmen — SEI',
   '/asesmen/kecenderungan': 'Pertanyaan Kecenderungan — SEI',
@@ -16,20 +18,112 @@ const titles: Record<string, string> = {
   '/hasil': 'Hasil Eksplorasi — SEI',
   '/hasil/sma-smk': 'Hasil Eksplorasi Jurusan & Profesi — SEI',
   '/hasil/ai': 'Hasil AI — SEI',
-  '/jalur': 'Jalur Pendidikan — SEI',
-  '/jalur/bandingkan': 'Bandingkan SMA dan SMK — SEI',
 }
 
-export function RouteTitle() {
+const ORIGIN = 'https://sei-explore.netlify.app'
+
+interface RouteHead {
+  title: string
+  description: string
+}
+
+/*
+ * The static shell in index.html can only describe the landing page, so this
+ * rewrites the head on every navigation. Listed here are the routes that render
+ * useful content with nothing saved in localStorage; everything else is marked
+ * noindex, because a crawler hitting /hasil or /asesmen only sees an empty
+ * shell. Keep in sync with public/sitemap.xml.
+ */
+const indexableHeads: Record<string, RouteHead> = {
+  '/': {
+    title: 'SEI — Kenali Minatmu, Jelajahi Jalur Pendidikan SMP/SMA/SMK',
+    description:
+      'Alat refleksi minat gratis untuk siswa SMP, SMA, dan SMK: asesmen 15 soal, jelajahi tujuh bidang studi, bandingkan jalur SMA dan SMK serta peluang kuliah dan kerja. Tanpa akun, data tetap di perangkat.',
+  },
+  '/mulai': {
+    title: 'Pilih Jenjang — Mulai Eksplorasi — SEI',
+    description:
+      'Mulai dari jenjangmu. Siswa SMP dan SMA/SMK mendapat set pertanyaan yang berbeda, lalu diarahkan ke hasil yang sesuai dengan tahapannya.',
+  },
+  '/mulai/sekolah': {
+    title: 'Pilih SMA atau SMK — SEI',
+    description:
+      'Jalur SMA dan SMK punya pertanyaan eksplorasi yang berbeda. Pilih sekolahmu supaya rekomendasi jurusan dan profesi lebih relevan.',
+  },
+  '/jalur': {
+    title: 'Jalur Pendidikan SMA dan SMK — SEI',
+    description:
+      'Kenali jalur SMA dan SMK lebih dekat: fokus belajar, kegiatan di sekolah, keterampilan yang dilatih, peluang kerja dan kuliah setelah lulus, serta pertanyaan yang perlu dipikirkan sebelum memilih.',
+  },
+  '/jalur/bandingkan': {
+    title: 'Bandingkan SMA dan SMK — SEI',
+    description:
+      'Perbandingan SMA dan SMK berdampingan, lengkap dengan daftar pertanyaan yang membantu siswa dan orang tua memutuskan sebelum memilih jalur.',
+  },
+}
+
+function fieldHead(fieldId: string): RouteHead | null {
+  const field = smaSmkFieldDefinitions.find((f) => f.id === fieldId)
+  if (!field) return null
+  return {
+    title: `Jelajahi Bidang ${field.name} — SEI`,
+    description: `${field.copy} Pelajari kurikulum mini, jurusan, dan profesi yang berkaitan dengan bidang ${field.name} di SEI.`,
+  }
+}
+
+function setMeta(attr: 'name' | 'property', key: string, content: string) {
+  let tag = document.head.querySelector<HTMLMetaElement>(
+    `meta[${attr}="${key}"]`,
+  )
+  if (!tag) {
+    tag = document.createElement('meta')
+    tag.setAttribute(attr, key)
+    document.head.appendChild(tag)
+  }
+  tag.setAttribute('content', content)
+}
+
+function setCanonical(pathname: string) {
+  let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+  if (!link) {
+    link = document.createElement('link')
+    link.rel = 'canonical'
+    document.head.appendChild(link)
+  }
+  link.href = ORIGIN + pathname
+}
+
+export function RouteMeta() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-
-    const exact = titles[pathname]
-    const prefixMatch = pathname.startsWith('/jelajah/bidang/')
-      ? 'Jelajahi Bidang — SEI'
+    const fieldId = pathname.startsWith('/jelajah/bidang/')
+      ? decodeURIComponent(pathname.slice('/jelajah/bidang/'.length))
       : null
-    document.title = exact ?? prefixMatch ?? 'Halaman Tidak Ditemukan — SEI'
+    const head =
+      indexableHeads[pathname] ?? (fieldId ? fieldHead(fieldId) : null)
+
+    document.title =
+      head?.title ?? titles[pathname] ?? 'Halaman Tidak Ditemukan — SEI'
+    setCanonical(pathname)
+    setMeta('property', 'og:url', ORIGIN + pathname)
+
+    if (head) {
+      setMeta('name', 'description', head.description)
+      setMeta('property', 'og:title', head.title)
+      setMeta('property', 'og:description', head.description)
+      setMeta('name', 'twitter:title', head.title)
+      setMeta('name', 'twitter:description', head.description)
+      setMeta('name', 'robots', 'index, follow, max-image-preview:large')
+      setMeta(
+        'name',
+        'googlebot',
+        'index, follow, max-snippet:-1, max-image-preview:large',
+      )
+    } else {
+      setMeta('name', 'robots', 'noindex, follow')
+      setMeta('name', 'googlebot', 'noindex, follow')
+    }
   }, [pathname])
 
   return null

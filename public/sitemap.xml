@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Only the routes that render useful content without saved assessment state.
+  /asesmen*, /hasil* and /pengaturan are deliberately absent: they need local
+  answers to show anything, so a crawler hitting them gets an empty shell.
+  Keep this list in sync with the INDEXABLE set in src/components/Layout.tsx.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sei-explore.netlify.app/</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/mulai</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/mulai/sekolah</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/jalur</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/jalur/bandingkan</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/jelajah/bidang/tech</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/jelajah/bidang/health</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/jelajah/bidang/business</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/jelajah/bidang/creative</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/jelajah/bidang/education-social</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/jelajah/bidang/law</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://sei-explore.netlify.app/jelajah/bidang/engineering</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+</urlset>

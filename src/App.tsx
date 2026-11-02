@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { RouteTitle, ScrollManager } from './components/Layout'
+import { RouteMeta, ScrollManager } from './components/Layout'
 import { CharacterProvider } from './state/CharacterContext'
 import { ExplorationProvider } from './state/ExplorationContext'
 import { SettingsProvider } from './state/SettingsContext'
@@ -28,7 +28,7 @@ export default function App() {
         <SettingsProvider>
           <ExplorationProvider>
             <ScrollManager />
-            <RouteTitle />
+            <RouteMeta />
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/pengaturan" element={<SettingsPage />} />

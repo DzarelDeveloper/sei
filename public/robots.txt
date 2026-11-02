@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sei-explore.netlify.app/sitemap.xml
