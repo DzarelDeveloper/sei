@@ -63,8 +63,8 @@ export const MASCOT_ASSETS: Record<
     main: {
       src: '/images/sei/girl-main.png',
       width: 768,
-      height: 1024,
-      alt: 'Maskot SEI cewek berhoodie pink dengan ransel, satu tangan terbuka dan satu tangan memegang tablet.',
+      height: 768,
+      alt: 'Maskot SEI cewek berjaket biru dan hoodie putih, menyapa dengan satu tangan terbuka.',
     },
     welcome: {
       src: '/images/sei/girl-welcome.png',
