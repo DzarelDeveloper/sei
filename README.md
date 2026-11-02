@@ -258,7 +258,8 @@ ke provider pilihanmu — jadi hindari menulis data pribadi di dalam jawaban.
 
 <br>
 
-**Default** — skor lokal, deterministik, jalan tanpa internet.
+**Default** — skor lokal, deterministik, tanpa API key dan tanpa satu pun
+panggilan ke API luar.
 **AI** — model menyusun soal yang dipersonalisasi dari jawabanmu lalu membaca
 hasilmu untuk menyusun rekomendasi. Mode AI bersifat opsional dan memakai
 API key milikmu sendiri (bring-your-own-key); tanpa key, SEI tetap berfungsi
@@ -286,6 +287,63 @@ mau, bukan berhenti di lima kotak.
 Ya. Jenjang **SMP** punya bank soal dan halaman hasil sendiri; **SMA dan SMK**
 berbagi alur dengan pemilihan jalur lebih dulu, hasil yang disesuaikan, plus
 halaman perbandingan jalur untuk keduanya.
+
+</details>
+
+<details>
+<summary>📅 <strong>Proyek ini sudah ada sebelum lombanya, kan?</strong></summary>
+
+<br>
+
+Sudah — dan itu saya nyatakan terbuka, bukan saya sembunyikan. SEI adalah proyek
+pribadi open source (MIT) yang saya kerjakan sebelum kompetisi ini dibuka, lalu
+saya persiapkan untuk submission: paket dokumentasi ([DISCLOSURE.md](DISCLOSURE.md)),
+penguncian versi lewat tag `v1.0-submission`, dan penajaman alur demo untuk penguji.
+
+Yang tidak ada di dalamnya: kode atau aset yang dibeli, diunduh, atau dipindahkan
+dari proyek pihak lain. Seluruh MVP adalah karya sendiri. Rinciannya per komponen
+ada di tabel disclosure.
+
+</details>
+
+<details>
+<summary>🧑‍💻 <strong>Kodenya ditulis manusia atau AI?</strong></summary>
+
+<br>
+
+Dua-duanya, dan itu bagian dari cara kerja proyek ini sejak awal. Saya memakai
+AI coding assistant sebagai alat development untuk menulis, men-debug, dan
+me-review sebagian kode, plus membuat skrip sekali-pakai (misalnya komposisi
+citra maskot) dan draf dokumentasi.
+
+Yang saya pertanggungjawabkan sendiri: seluruh kode sudah dibaca, dijalankan,
+dan diuji lewat `typecheck`, `build`, serta skrip verifikasi otomatis — bukan
+kode yang diterima mentah lalu di-push. Keputusan desain (client-only, BYOK,
+positioning "alat refleksi bukan tes bakat") dan kurasi konten pendidikannya
+milik saya. Tidak ada usage AI yang ditutup-tutupi; itu justru alasan file
+DISCLOSURE.md ada.
+
+</details>
+
+<details>
+<summary>🔑 <strong>Saya tidak punya API key — Mode AI bisa dites tidak?</strong></summary>
+
+<br>
+
+Bisa, dan aplikasi ini tidak pernah jadi kosong kalau kamu tidak menempelkan
+apa pun. **Mode Default** berjalan penuh tanpa akun dan tanpa key: asesmen,
+skoring, hasil, jelajah bidang, sampai perbandingan jalur — semuanya dihitung di
+browser dan jawabanmu tidak dikirim ke mana-mana.
+
+Untuk mencoba **Mode AI**, pilih salah satu:
+
+1. Buka **Pengaturan → Mode AI**, tempel key milik sendiri — provider dengan
+   tier gratis seperti Groq atau Gemini bisa didaftarkan dalam ±2 menit; atau
+2. Minta **kunci demo sementara** lewat kanal/form panitia. Kuncinya berkuota
+   kecil, berkedaluwarsa, dan bisa saya cabut kapan saja.
+
+Kunci demo tidak pernah disimpan di repository ini — kalau ada key yang
+ter-commit, itu bukan bagian dari proyek.
 
 </details>
 

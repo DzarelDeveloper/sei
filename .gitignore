@@ -3,8 +3,12 @@ dist
 dist-ssr
 *.local
 *.log
+.env
+.env.*
+!.env.example
 .DS_Store
 .vite
 tsconfig.*.tsbuildinfo
 .screens
+design/verify/
 .qoder/

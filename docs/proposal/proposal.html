@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>AIWIC2026 Dzarel SEI — Proposal</title>
+<style>
+  @font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../../node_modules/@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2-variations');
+    font-weight: 200 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../../node_modules/@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-italic.woff2') format('woff2-variations');
+    font-weight: 200 800;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Instrument Serif';
+    src: url('../../node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #0b1a2b;
+    font-size: 9.4pt;
+    line-height: 1.46;
+    font-variation-settings: 'wght' 400;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 16mm 15mm 16mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .sheet:last-child { page-break-after: auto; }
+
+  /* ---------- cover ---------- */
+  .cover {
+    background: #0b1a2b; color: #fff; padding: 0;
+    height: 297mm; display: flex; flex-direction: column;
+  }
+  .cover .strip { height: 3mm; background: #677ac6; flex: none; }
+  .cover-inner { flex: 1; padding: 20mm 20mm 0; display: flex; flex-direction: column; }
+  .cover .brandrow {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 26mm;
+  }
+  .cover .kicker {
+    font-size: 8.4pt; letter-spacing: .16em; text-transform: uppercase;
+    color: #93b8f4; font-variation-settings: 'wght' 600; line-height: 1.5;
+  }
+  .cover .kicker small {
+    display: block; color: #5c7191; letter-spacing: .1em; font-size: 7.6pt;
+    font-variation-settings: 'wght' 400; margin-top: 1.2mm;
+  }
+  .cover .mark { width: 17mm; flex: none; }
+  .cover h1 {
+    font-family: 'Instrument Serif', serif; font-weight: 400;
+    font-size: 44pt; line-height: 1; margin: 0; letter-spacing: -.015em;
+  }
+  .cover h1 span {
+    display: block; font-size: 22pt; color: #93b8f4; letter-spacing: 0;
+    margin-top: 2.5mm;
+  }
+  .cover .sub {
+    font-size: 10.6pt; color: #cddbee; margin: 7mm 0 0; max-width: 128mm;
+    font-variation-settings: 'wght' 300; line-height: 1.5;
+  }
+  .cover .divider { height: 1px; background: #22364e; margin: 18mm 0 0; }
+
+  .cover table.info {
+    width: 100%; border-collapse: collapse; margin: 0; font-size: 10pt;
+  }
+  .cover table.info th {
+    background: none; color: #8296af; font-size: 7.8pt; letter-spacing: .12em;
+    text-transform: uppercase; font-variation-settings: 'wght' 600;
+    width: 34mm; text-align: left; vertical-align: top;
+    padding: 4.2mm 0; border-bottom: 1px solid #16283c;
+  }
+  .cover table.info td {
+    color: #eaf1fc; padding: 4.2mm 0; border-bottom: 1px solid #16283c;
+    vertical-align: top; font-variation-settings: 'wght' 500;
+  }
+  .cover table.info tr:last-child th,
+  .cover table.info tr:last-child td { border-bottom: none; }
+  .cover table.info td em { color: #d98b22; font-style: normal; font-variation-settings: 'wght' 400; }
+
+  .cover .links {
+    margin-top: auto; margin-bottom: 14mm; background: #14263a;
+    border-left: 3px solid #677ac6; padding: 0; overflow: hidden;
+  }
+  .cover .links table {
+    width: 100%; border-collapse: collapse; font-size: 9.6pt; margin: 0;
+  }
+  .cover .links th {
+    background: none; color: #8296af; font-size: 7.8pt; letter-spacing: .12em;
+    text-transform: uppercase; font-variation-settings: 'wght' 600;
+    width: 34mm; text-align: left; padding: 3.2mm 6mm 3.2mm 5mm;
+    border-bottom: 1px solid #1e3350; white-space: nowrap;
+  }
+  .cover .links td {
+    color: #cddbee; padding: 3.2mm 6mm 3.2mm 0; border-bottom: 1px solid #1e3350;
+    font-variation-settings: 'wght' 500;
+  }
+  .cover .links tr:last-child th,
+  .cover .links tr:last-child td { border-bottom: none; }
+
+  .cover .foot {
+    flex: none; margin: 0 20mm; padding: 5mm 0 14mm;
+    font-size: 8pt; color: #5c7191; border-top: 1px solid #22364e;
+    display: flex; justify-content: space-between; gap: 8mm;
+  }
+  .cover .foot span:last-child { white-space: nowrap; }
+
+  /* ---------- body ---------- */
+  h2 {
+    font-size: 13.5pt; margin: 0 0 3mm; color: #0b1a2b;
+    font-variation-settings: 'wght' 700; letter-spacing: -.01em;
+  }
+  h2 .num {
+    display: inline-block; min-width: 7mm; color: #1a5fd0;
+    font-variation-settings: 'wght' 700;
+  }
+  .sec { margin-bottom: 7mm; }
+  .sec + .sec { border-top: 1px solid #e3ebf6; padding-top: 6mm; }
+  p { margin: 0 0 2.6mm; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-variation-settings: 'wght' 650; }
+  em { font-style: italic; }
+  code {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-variation-settings: 'wght' 500;
+    background: #eaf1fc; color: #0f3d8a; padding: .3mm 1.2mm; border-radius: 2px; font-size: 9.4pt;
+  }
+  ul { margin: 2mm 0 2.6mm; padding-left: 5mm; }
+  li { margin-bottom: 1.4mm; }
+  li::marker { color: #5b95f0; }
+  .lead {
+    font-family: 'Instrument Serif', serif; font-size: 12.4pt; line-height: 1.34;
+    color: #22364e; margin: 0 0 3.5mm;
+  }
+  .pull {
+    background: #f0f6ff; border-left: 3px solid #2b74e6; padding: 4mm 5mm;
+    margin: 3.5mm 0 0; font-size: 9.9pt; color: #14263a;
+  }
+  .note { font-size: 9.3pt; color: #5c7191; }
+
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 2.5mm; font-size: 9.3pt; }
+  th, td { text-align: left; padding: 2mm 2.5mm; border-bottom: 1px solid #e3ebf6; vertical-align: top; }
+  th {
+    background: #eaf1fc; color: #0f3d8a; font-variation-settings: 'wght' 650;
+    font-size: 8.8pt; letter-spacing: .02em; text-transform: uppercase;
+  }
+  th:first-child { width: 27mm; }
+  td.ai { background: #f7fbff; }
+
+  pre {
+    background: #0b1a2b; color: #cddbee; padding: 4mm 5mm; margin: 3mm 0 0;
+    font-size: 8.5pt; line-height: 1.5; white-space: pre-wrap; border-radius: 2mm;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-variation-settings: 'wght' 400;
+  }
+
+  .pagefoot {
+    position: absolute; left: 15mm; right: 15mm; bottom: 8mm;
+    display: flex; justify-content: space-between;
+    font-size: 8pt; color: #8296af; border-top: 1px solid #e3ebf6; padding-top: 2.5mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="sheet cover">
+  <div class="strip"></div>
+  <div class="cover-inner">
+    <div class="brandrow">
+      <div class="kicker">Bali DigiFest 2026<br>AI Web Innovation Challenge<small>Proposal Solusi &amp; MVP AI Web</small></div>
+      <img class="mark" src="../../public/logo-mark.svg" alt="SEI">
+    </div>
+    <h1>SEI<span>Self Exploration Intelligence</span></h1>
+    <p class="sub">Alat refleksi untuk siswa SMP, SMA, dan SMK yang sedang harus memilih jalur. Tanpa akun, tanpa server, dan tanpa klaim bisa membaca takdirmu.</p>
+    <div class="divider"></div>
+    <table class="info">
+      <tbody>
+        <tr><th>Peserta</th><td>Muhamad Dzarel Alghifari &mdash; tim individu</td></tr>
+        <tr><th>Kategori</th><td>SMA/SMK</td></tr>
+        <tr><th>Kontak</th><td>WhatsApp +62 882-9320-8245</td></tr>
+        <tr><th>Tanggal</th><td>November 2026</td></tr>
+      </tbody>
+    </table>
+    <div class="links">
+      <table>
+        <tbody>
+          <tr><th>Coba langsung</th><td>https://sei-explore.netlify.app</td></tr>
+          <tr><th>Kode sumber</th><td>https://github.com/DzarelDeveloper/sei</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="foot">
+    <span>Keterbukaan teknologi lengkap: DISCLOSURE.md pada repository yang sama.</span>
+    <span>AIWIC2026_Dzarel_SEI</span>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="sheet">
+  <div class="sec">
+    <h2><span class="num">1</span>Masalah dan kenapa ini penting</h2>
+    <p class="lead">Setiap tahun, pelajar Indonesia diminta menjawab pertanyaan besar dengan informasi yang kecil.</p>
+    <p>Siswa kelas IX SMP harus memutuskan lanjut ke SMA atau SMK. Siswa SMA kelas XII harus memilih jurusan perguruan tinggi. Yang biasanya jadi pegangan cuma kabar dari teman, harapan orang tua, atau kuis minat di media sosial yang hasilnya sebenarnya label lucu-lucuan. Sedikit sekali pelajar yang benar-benar diberi ruang untuk menguraikan minatnya sendiri sebelum keputusan itu diambil.</p>
+    <p>Di Bali masalahnya punya satu lapis tambahan. Lulusan SMK masuk ke pasar kerja pariwisata dan ekonomi kreatif yang sedang berubah digital, sementara tidak banyak yang tahu skill jembatan apa yang perlu disiapkan lebih dulu. Gejalanya sudah terlihat: angka ganti jurusan dan putus kuliah yang terus berulang, serta pekerjaan yang tidak pernah sungguh-sungguh dipilih.</p>
+    <p>Saya melihat akar masalahnya bukan pada kekurangan tes, melainkan pada kualitas alat yang tersedia. Psikotes profesional itu mahal dan berjarak. Tes bakat instan gampang dicari tapi dasarnya pseudosains. Bimbingan konseling di sekolah terbatas waktu dan jumlah siswa yang bisa didampingi. Yang belum ada adalah alat refleksi yang murah, privat, dan jujur, yaitu alat yang menolong siswa berpikir tentang dirinya tanpa mengaku bisa menentukan nasibnya.</p>
+  </div>
+  <div class="sec">
+    <h2><span class="num">2</span>Siapa yang dibantu</h2>
+    <p><strong>Pengguna utama:</strong> siswa SMP, SMA, dan SMK yang sedang berdiri di titik keputusan jalur. Karena saya sendiri pelajar SMA/SMK, kelompok yang paling dekat dengan saya adalah siswa SMP kelas IX yang sebentar lagi memilih lanjut ke SMA atau SMK, dan teman-teman kelas XII yang harus menentukan jurusan. <strong>Pengguna kedua:</strong> orang tua atau wali yang menemani percakapan itu dan butuh bahan diskusi yang netral, bukan hasil yang terasa vonis.</p>
+    <p>Tiga hal yang paling sering mereka rasakan:</p>
+    <ul>
+      <li><strong>"Aku tidak tahu aku suka apa."</strong> Minat belum pernah diberi tempat untuk diuraikan; yang ada cuma ditanya sekali lalu diberi label.</li>
+      <li><strong>Informasi jalur tersebar.</strong> SMA atau SMK, pilihan jurusan, jalur kerja, beasiswa seperti KIP dan KIP&ndash;K, semuanya punya halaman sendiri dan tidak pernah dibandingkan dalam satu tampilan.</li>
+      <li><strong>Was-was soal data.</strong> Aplikasi psikotes minta akun lalu menyimpan jawaban, dan orang tua tidak tahu jawaban itu berakhir di mana.</li>
+    </ul>
+    <p>Alatnya dipakai di ponsel atau laptop pribadi, berbahasa Indonesia santai, tanpa daftar akun, dan boleh diulang kapan saja karena pikiran manusia memang berubah. Tidak ada ujian ulang atau label yang menempel permanen; yang ada cuma refleksi yang boleh dilanjutkan besok.</p>
+  </div>
+  <div class="pagefoot"><span>SEI &mdash; Self Exploration Intelligence</span><span>Halaman 1 dari 4</span></div>
+</section>
+
+<!-- ============ PAGE 3 ============ -->
+<section class="sheet">
+  <div class="sec">
+    <h2><span class="num">3</span>Solusi yang saya usulkan</h2>
+    <p>SEI adalah aplikasi web yang jalan sepenuhnya di browser, tanpa akun dan tanpa backend, yang mengubah "tes minat" menjadi rangkaian refleksi kecil yang nyambung satu sama lain. Alurnya: pilih level dan jalur, lalu halaman pengantar yang berisi kontrak kejujuran soal apa yang bisa dan tidak bisa dilakukan alat ini, dilanjutkan asesmen campuran soal skala, pilihan, dan esai singkat. Jawaban esai kemudian dijabarkan jadi sintesis kecenderungan, dan hasilnya ditampilkan sebagai skor pada lima bidang, yaitu <em>software</em>, jaringan, desain, sains, dan elektronika, plus rekomendasi bertingkat. Setelah itu siswa bisa menjelajah tiap bidang lewat kurikulum mini dan ide proyek, membandingkan jalur SMA, SMK, kerja, dan kuliah, lalu menutup dengan langkah berikutnya yang konkret.</p>
+    <p>Satu keputusan desain yang paling menentukan bentuk produk ini: SEI tidak pernah menyimpulkan "kamu harus masuk jurusan X". Yang keluar adalah skor kecenderungan, beberapa alternatif, dan alasan yang boleh dibantah. Arah tetap milik siswa.</p>
+    <div class="pull"><strong>Inti proposisinya:</strong> bukan tes bakat, tapi alat refleksi. Tidak ada jurusan yang dipaksakan, dan semua data berhenti di perangkat pengguna.</div>
+  </div>
+  <div class="sec">
+    <h2><span class="num">4</span>Peran AI di SEI</h2>
+    <p>SEI punya dua mode, dan keduanya saya nyatakan jujur di antarmuka sejak awal.</p>
+    <table>
+      <thead><tr><th></th><th>Mode default (rule-based)</th><th class="ai">Mode AI (BYOK)</th></tr></thead>
+      <tbody>
+        <tr><td>Skoring</td><td>rumus bobot dijalankan di browser</td><td class="ai">sama persis; AI tidak pernah menyentuh skor</td></tr>
+        <tr><td>Soal</td><td>bank soal statis</td><td class="ai">LLM menyusun 3 soal esai personal dari profil, jalur, dan catatan pengguna</td></tr>
+        <tr><td>Analisis esai</td><td>ringkasan heuristik</td><td class="ai">LLM membaca jawaban esai lalu menulis sintesis kecenderungan berbahasa natural</td></tr>
+        <tr><td>Halaman hasil</td><td>kartu hasil aturan</td><td class="ai"><code>/hasil/ai</code> narasi rekomendasi jurusan atau pasar kerja, strategi belajar, dan pertanyaan refleksi</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Model dan jalur API.</strong> Pengguna menempelkan API key miliknya sendiri, dan provider dipilih otomatis dari prefiks key: OpenAI GPT-4o-mini, Anthropic Claude 3.5 Haiku, Google Gemini Flash, Groq Llama 3.3 70B, atau OpenRouter. Permintaan dikirim langsung dari browser (<code>src/services/aiClient.ts</code>) tanpa server perantara milik saya. Response diwajibkan berbentuk JSON, divalidasi terhadap skema, dibaca secara defensif, dan diberi retry dengan backoff; kalau gagal, yang muncul pesan berbahasa Indonesia yang menjelaskan, bukan layar kosong.</p>
+    <p><strong>Kenapa AI bukan tempelan.</strong> Esai siswa berisi kalimat bebas yang sering tidak rapi: campuran curhat, daftar hobi, dan alasan yang belum matang. Mengubah bahasa semacam itu jadi ringkasan yang enak dibaca sulit dilakukan aturan tetap; heuristik bisa meniru bentuknya, tapi kualitas bahasanya jelas beda. Di titik inilah LLM jadi bagian material solusi. Sebaliknya, skoring saya biarkan tetap berupa rumus di browser supaya hasil bisa diperiksa ulang dan tidak ada kemungkinan AI mengubah angka diam-diam.</p>
+    <p><strong>Privasi dan batasan.</strong> Key hanya dikirim ke provider yang pengguna pilih sendiri. Tidak ada data yang berangkat kalau mode AI tidak dinyalakan. Rekomendasi LLM tidak saya klaim valid secara psikometrik, dan antarmuka selalu menandai bagian mana yang hasil aturan dan mana yang hasil AI.</p>
+  </div>
+  <div class="pagefoot"><span>SEI &mdash; Self Exploration Intelligence</span><span>Halaman 2 dari 4</span></div>
+</section>
+
+<!-- ============ PAGE 4 ============ -->
+<section class="sheet">
+  <div class="sec">
+    <h2><span class="num">5</span>MVP: yang bisa dicoba hari ini</h2>
+    <p>Semua ini sudah jalan di <strong>https://sei-explore.netlify.app</strong> dan bisa langsung dites tanpa login.</p>
+    <ul>
+      <li><strong>Inti:</strong> alur asesmen lengkap 15 soal, skor 5 bidang, halaman hasil bertingkat, jelajah 5 bidang dengan kurikulum mini dan proyek, informasi serta perbandingan jalur (SMA/SMK/kerja/kuliah, termasuk beasiswa seperti KIP dan KIP&ndash;K), progres tersimpan di localStorage, pemilihan maskot dan karakter.</li>
+      <li><strong>AI:</strong> penyusunan soal esai personal, analisis esai, halaman hasil AI di <code>/hasil/ai</code>, pengaturan BYOK dengan tombol tes koneksi, dan fallback pesan error yang ramah.</li>
+      <li><strong>Dokumentasi produk:</strong> README, galeri 35 screenshot yang diregenerasi otomatis lewat skrip, smoke test untuk memastikan halaman utama tetap hidup, dan brand kit (banner, wordmark, ikon) yang saya gambar sendiri.</li>
+    </ul>
+  </div>
+  <div class="sec">
+    <h2><span class="num">6</span>Arsitektur teknis</h2>
+    <pre>User (browser, HP atau laptop)
+  └─ React 18 + TypeScript SPA (Vite 6, React Router 6)   ← hosting Netlify
+       ├─ Context state (progres, pengaturan, karakter)
+       ├─ localStorage (satu-satunya tempat penyimpanan data)
+       ├─ Mesin skoring &amp; rekomendasi rule-based, jalan di browser
+       ├─ [Mode AI] fetch langsung ke API provider LLM (BYOK, tanpa backend)
+       └─ response JSON → validasi skema → dirender ke halaman hasil</pre>
+    <p class="note">Tidak ada satu pun komponen server. Konsekuensinya praktis: biaya operasional nol, tidak ada database yang bisa bocor, dan aplikasi tetap berfungsi penuh kalau layanan AI sedang mati.</p>
+  </div>
+  <div class="sec">
+    <h2><span class="num">7</span>Inovasi dan pembeda</h2>
+    <p>SEI bersaing dengan kategori alat yang berbeda, bukan dengan aplikasi yang sama.</p>
+    <table>
+      <tbody>
+        <tr><td>Psikotes berbayar</td><td>SEI gratis, tanpa janji diagnostik, dan datanya tidak pernah keluar dari perangkat.</td></tr>
+        <tr><td>Kuis minat viral</td><td>SEI memakai esai berbahasa bebas yang benar-benar dianalisis, dan tidak memaksa satu label jurusan.</td></tr>
+        <tr><td>Aplikasi karier ber-backend</td><td>SEI tidak punya backend, jadi juga tidak punya cara menyimpan jawaban siswa.</td></tr>
+        <tr><td>Buku atau panduan jalur</td><td>Jalur bisa dibandingkan berdampingan dan terhubung langsung dengan hasil refleksi pribadi, bukan bacaan umum.</td></tr>
+      </tbody>
+    </table>
+    <p>Positioning "alat refleksi, bukan tes bakat" adalah ruang yang belum diambil kompetitor, dan posisi itu juga yang membuat produk ini aman dipakai anak sekolah.</p>
+  </div>
+  <div class="pagefoot"><span>SEI &mdash; Self Exploration Intelligence</span><span>Halaman 3 dari 4</span></div>
+</section>
+
+<!-- ============ PAGE 5 ============ -->
+<section class="sheet">
+  <div class="sec">
+    <h2><span class="num">8</span>Dampak dan arah pengembangan</h2>
+    <p><strong>Dampak yang saya harapkan:</strong> keputusan jalur yang lebih dipikirkan, potensi salah jurusan yang berkurang, dan akses yang lebih setara bagi siswa yang tidak mampu membayar psikotes. Untuk Bali, konten jalur bisa diperkaya konteks lokal seperti vokasi pariwisata, ekonomi kreatif, dan transformasi digital UMKM, supaya saran yang muncul nyambung dengan pasar kerja sekitar.</p>
+    <p><strong>Rencana lanjutan:</strong> paket konten per daerah, mode guru atau BK untuk pendampingan massal, ekspor hasil ke PDF, dan kalibrasi instrumen bersama psikolog atau konselor sekolah.</p>
+    <p><strong>Keterbatasan yang saya akui apa adanya:</strong> instrumen ini belum divalidasi secara psikometrik formal, kualitas mode AI bergantung pada provider dan key milik pengguna, dan karena saya kerjakan sendiri, roadmap bergerak lebih lambat daripada tim. Saya lebih memilih menyebutkan ini di proposal daripada menjual janji yang tidak bisa saya buktikan.</p>
+  </div>
+  <div class="sec">
+    <h2><span class="num">9</span>Keterbukaan teknologi</h2>
+    <p>React 18, TypeScript 5.7, Vite 6, dan React Router 6 (semua MIT), tanpa framework UI pihak ketiga karena styling-nya CSS kustom buatan sendiri. Font Plus Jakarta Sans dan Instrument Serif (SIL Open Font License). Hosting Netlify free tier. Layanan LLM diakses lewat API BYOK milik pengguna. Tidak ada backend dan tidak ada database. Automasi screenshot memakai Chrome DevTools Protocol lewat skrip Node.js, dengan normalisasi gambar memakai Python.</p>
+    <p>Dua hal yang saya ungkapkan sengaja: pengembangan dibantu AI coding assistant, dan SEI adalah proyek pribadi yang sudah ada sebelum lomba (open source, MIT) lalu saya sempurnakan untuk submission ini. Tabel lengkapnya ada di <strong>DISCLOSURE.md</strong> pada repository.</p>
+  </div>
+  <div class="sec">
+    <h2><span class="num">10</span>Tautan submission dan pernyataan</h2>
+    <table>
+      <tbody>
+        <tr><td>Repository GitHub</td><td>https://github.com/DzarelDeveloper/sei</td></tr>
+        <tr><td>Deployment</td><td>https://sei-explore.netlify.app</td></tr>
+        <tr><td>Versi terkunci</td><td>tag annotated <code>v1.0-submission</code> pada commit <code>159838d</code>, disertai GitHub Release di alamat yang sama</td></tr>
+        <tr><td>Akses demo</td><td>tidak perlu login; untuk mode AI, kunci demo dikirim lewat kanal resmi panitia, bukan disimpan di repository</td></tr>
+      </tbody>
+    </table>
+    <div class="pull">Saya menyatakan data submission ini benar, karya ini dikembangkan sendiri oleh saya sebagai peserta individu, seluruh library, API, dataset, model, template, dan aset pihak ketiga telah diungkapkan di DISCLOSURE.md, repository tidak mengekspos API key atau kredensial apa pun, dan panitia serta juri boleh mengakses semua tautan di atas untuk keperluan verifikasi dan penilaian.</div>
+  </div>
+  <div class="pagefoot"><span>SEI &mdash; Self Exploration Intelligence</span><span>Halaman 4 dari 4</span></div>
+</section>
+
+</body>
+</html>

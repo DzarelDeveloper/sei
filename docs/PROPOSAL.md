@@ -1,7 +1,13 @@
 # Proposal Solusi & MVP AI Web — Bali DigiFest 2026 (AIWIC2026)
 
-> Draft isi (maks. 5 halaman A4). Ekspor ke PDF A4 dengan nama file:
-> `AIWIC2026_Dzarel_SEI.pdf`. Bagian ini adalah isi; cover & lampiran terpisah.
+> Versi final (bahasa yang sudah dihaluskan, maks 5 halaman A4) ada di
+> `docs/proposal/proposal.html` dan diekspor ke
+> `docs/proposal/AIWIC2026_Dzarel_SEI.pdf` via Chrome headless:
+> `google-chrome --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
+>  --print-to-pdf=docs/proposal/AIWIC2026_Dzarel_SEI.pdf \
+>  file://$PWD/docs/proposal/proposal.html`
+> Cover & lampiran terpisah. Edit `.html` lalu regenerasi PDF-nya, jangan hanya
+> mengubah draft di bawah ini.
 
 ---
 
@@ -9,8 +15,8 @@
 
 **SEI — Self Exploration Intelligence**
 Peserta: Muhamad Dzarel Alghifari (individu)
-Kategori: *(isi sesuai statusmu — SMA/SMK atau Mahasiswa/Umum)*
-Kontak: *(isi email/WhatsApp ketua = kamu sendiri)*
+Kategori: SMA/SMK
+Kontak: WhatsApp +62 882-9320-8245
 
 ---
 
@@ -31,8 +37,9 @@ pseudosains, atau konsultasi terbatas di sekolah.
 
 ## 2. Target User
 
-- **Pengguna utama:** siswa SMP/SMA/SMK (13–19 th) di Bali & Indonesia umum;
-  orang tua/wali yang mendampingi keputusan.
+- **Pengguna utama:** siswa SMP/SMA/SMK di Bali & Indonesia umum (peserta
+  sendiri pelajar SMA/SMK, jadi kelompok terdekat adalah siswa SMP kelas IX dan
+  kelas XII SMA/SMK); orang tua/wali yang mendampingi keputusan.
 - **Pain point:** (a) tidak tahu minatnya sendiri diarahkan ke apa; (b) informasi
   jalur (SMA vs SMK, jurusan, beasiswa) tersebar dan tidak dibandingkan;
   (c) takut data pribadi dipakai/dijual aplikasi psikotes.
@@ -139,5 +146,5 @@ coding assistant, proyek pre-existing pribadi yang diungkap transparan.
 |---|---|
 | GitHub Repository | https://github.com/DzarelDeveloper/sei |
 | Deployment URL | https://sei-explore.netlify.app |
-| Commit Hash / Tag | `v1.0-submission` *(catat hash final saat deadline)* |
+| Commit Hash / Tag | `v1.0-submission` → commit `159838d` (GitHub Release dibuat dengan tag yang sama) |
 | Demo Account | tidak perlu login; kunci demo mode AI dikirim via kanal panitia |

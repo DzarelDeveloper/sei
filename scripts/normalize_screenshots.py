@@ -19,6 +19,8 @@ from pathlib import Path
 from PIL import Image
 
 SCREENSHOTS_DIR = Path("docs/screenshots")
+TARGET = (1280, 720)
+BACKGROUND = (244, 246, 251)
 
 def normalise(path: Path) -> tuple[int, int]:
     image = Image.open(path).convert("RGB")
