@@ -5,7 +5,7 @@ import { chat, detectProvider } from '../services/aiClient'
 import { useCharacter } from '../state/CharacterContext'
 import { useSettings, type SeiMode } from '../state/SettingsContext'
 import { Button } from './Button'
-import { IconCheck, IconClose, IconSettings } from './Icons'
+import { IconArrowRight, IconCheck, IconClose, IconSettings } from './Icons'
 import { Mascot } from './Mascot'
 
 type SettingsVariant = 'navbar' | 'panel'
@@ -152,6 +152,20 @@ export function SettingsPanel() {
       {mode === 'ai' ? (
         <section className="settings__section settings__ai">
           <h3 className="settings__heading">API Key AI</h3>
+          <p className="settings__reco">
+            <span className="settings__reco-badge">Rekomendasi</span>
+            Belum punya API key? Buat gratis di OpenRouter—satu key untuk banyak
+            model.{' '}
+            <a
+              className="settings__reco-link"
+              href="https://openrouter.ai/settings/keys"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ambil API key OpenRouter
+              <IconArrowRight className="settings__reco-link-icon" />
+            </a>
+          </p>
           <div className="settings__field">
             <input
               type="text"

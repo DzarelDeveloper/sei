@@ -47,7 +47,6 @@ export function Footer() {
               <Link to="/">Beranda</Link>
               <Link to="/#cara-kerja">Cara kerja</Link>
               <Link to="/#tentang">Tentang SEI</Link>
-              <Link to="/#tentang">Fase 1: prototipe</Link>
               {hasProgress ? (
                 <button type="button" onClick={() => setConfirmOpen(true)}>
                   Mulai ulang eksplorasi

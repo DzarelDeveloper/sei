@@ -545,6 +545,53 @@
   background: var(--paper);
 }
 
+.settings__reco {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  margin: 0 0 var(--sp-3);
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--blue-200);
+  border-radius: var(--r-sm);
+  background: var(--blue-50);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--ink-700);
+}
+
+.settings__reco-badge {
+  flex: none;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--r-pill);
+  background: var(--blue-600);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.settings__reco-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--brand-strong);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.settings__reco-link:hover {
+  color: var(--blue-800);
+}
+
+.settings__reco-link-icon {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
 .settings__field {
   display: flex;
   flex-wrap: wrap;
