@@ -4,7 +4,7 @@ import { useExploration } from '../state/ExplorationContext'
 import { Button } from './Button'
 import { Modal } from './Modal'
 import { Wordmark } from './Logo'
-import { IconInfo } from './Icons'
+import { IconGithub, IconInfo, IconInstagram, IconLinkedin } from './Icons'
 
 export function Footer() {
   const navigate = useNavigate()
@@ -52,6 +52,37 @@ export function Footer() {
                   Mulai ulang eksplorasi
                 </button>
               ) : null}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="footer__heading">Made by</h2>
+            <p className="footer__author">Dzarel Alghifari</p>
+            <div className="footer__social">
+              <a
+                href="https://www.instagram.com/buildwithdzarel/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <IconInstagram className="footer__social-icon" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dzareldeveloper/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <IconLinkedin className="footer__social-icon" />
+              </a>
+              <a
+                href="https://github.com/DzarelDeveloper"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <IconGithub className="footer__social-icon" />
+              </a>
             </div>
           </div>
         </div>
